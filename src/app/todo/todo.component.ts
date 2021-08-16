@@ -60,5 +60,6 @@ export class TodoComponent implements OnInit {
         if (index !== -1) {
             this.toDoItems.splice(index, 1);
         }
+        this.tickedItems();
     }
 }
