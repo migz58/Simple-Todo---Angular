@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col" style="margin: auto;">
+            <form [formGroup]="toDoForm">
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="toDo" placeholder="What needs to be done?" autofocus (change)="addItem()">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col" style="margin: auto;">
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let item of toDoItems">
+                    <input class="form-check-input" type="checkbox" value="item.status">
+                    <label class="form-check-label" for="defaultCheck1">
+                        {{item}}
+                    </label>
+                    <a (click)="deleteItem(item)">Trash</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
