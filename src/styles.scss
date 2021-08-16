@@ -5,6 +5,10 @@
     src: url(./assets/font/OpenSans-Regular.ttf);
 }
 
+.vat-it-logo {
+    width: 60px;
+}
+
 body {
     font-family: OpenSans;
 }
@@ -54,4 +58,20 @@ svg#clouds {
 
 .list-group-item {
     padding: .75rem 2.25rem;
+}
+
+.delete-icon {
+    float: right;
+    color: #8A0808;
+    transition: all .2s ease-in-out;
+}
+
+.delete-icon:hover {
+    transform: scale(1.3);
+    color: #16263F;
+}
+
+.item-counter {
+    background: #16263F;
+    color: #fff;
 }

@@ -26,12 +26,13 @@ export class TodoComponent implements OnInit {
 
     ngOnInit(): void {
         this.tickedItems();
-     }
+    }
 
-    tickedItems(){
+
+    tickedItems() {
         this.count = 0;
-        for(var i = 0; i < this.toDoItems.length; i++){
-            if(this.toDoItems[i].status === false){
+        for (var i = 0; i < this.toDoItems.length; i++) {
+            if (this.toDoItems[i].status === false) {
                 this.count++;
             }
         }
@@ -47,10 +48,10 @@ export class TodoComponent implements OnInit {
         this.tickedItems();
     }
 
-    onCheckChange(item){
+    onCheckChange(item) {
         const index: number = this.toDoItems.indexOf(item);
         if (index !== -1) {
-            this.toDoItems[index].status =  !this.toDoItems[index].status;
+            this.toDoItems[index].status = !this.toDoItems[index].status;
         }
         this.tickedItems();
     }
