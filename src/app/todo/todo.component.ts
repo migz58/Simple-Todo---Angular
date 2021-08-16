@@ -9,8 +9,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class TodoComponent implements OnInit {
     toDoForm: FormGroup;
     toDoItems = [
-        "Do some work"
-    ]
+        {
+            title: "Do some work",
+            status: false
+        }
+    ];
+    count: number = 0;
 
     constructor(
         private fb: FormBuilder,
@@ -20,12 +24,35 @@ export class TodoComponent implements OnInit {
         });
     }
 
-    ngOnInit(): void { }
+    ngOnInit(): void {
+        this.tickedItems();
+     }
+
+    tickedItems(){
+        this.count = 0;
+        for(var i = 0; i < this.toDoItems.length; i++){
+            if(this.toDoItems[i].status === false){
+                this.count++;
+            }
+        }
+    }
 
     addItem() {
-        console.log(this.toDoForm.value.toDo);
-        this.toDoItems.push(this.toDoForm.value.toDo)
+        const items = {
+            title: this.toDoForm.value.toDo,
+            status: false
+        }
+        this.toDoItems.push(items);
         this.toDoForm.reset();
+        this.tickedItems();
+    }
+
+    onCheckChange(item){
+        const index: number = this.toDoItems.indexOf(item);
+        if (index !== -1) {
+            this.toDoItems[index].status =  !this.toDoItems[index].status;
+        }
+        this.tickedItems();
     }
 
     deleteItem(item) {
